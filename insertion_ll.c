@@ -23,22 +23,13 @@ void insertion_sort_list(listint_t **head)
     while (node != NULL)
     {
         tmp = node;
-        if (node)
-            tm = node->next;
-        //printf("%d - \n", node->prev->n);
-        while (tmp->n < tmp->prev->n && tmp->prev != NULL)
+        while (tmp->prev != NULL && tmp->n < tmp->prev->n)
         {
-            //printf("%d - %d\n", tmp->n, tmp->prev->n);
-            t = tmp;
             swap(tmp->prev, tmp, head);
             print_list(*head);
-            printf("hello %d ---\n", t->n);
-            tmp = t;
         }
-        printf("end - while\n");
-        node = tm;
+        node = node->next;
     }
-    printf("end - sort\n");
 }
 
 /**
